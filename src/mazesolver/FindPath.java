@@ -129,33 +129,22 @@ public class FindPath {
                 catch (Exception e) {
                     
                 }
-                
-                
+     
             }
-            
-            
-            
-            
-            
-            
-        }
-        
-        
-        
+        } 
         
     }
     
     private static void preparation(Vector<Vector <Tile> > Array) {
+        
         for (int i = 0; i < Array.size(); i++) {
             for (int j = 0; j < Array.get(i).size(); j++) {
                 Array.get(i).get(j).seen = false;
                 Array.get(i).get(j).ancestor = null;
                 if (Array.get(i).get(j).C == Color.BLUE)
                     Array.get(i).get(j).C = Color.WHITE;
-                
-                
             }
-         }
+        }
+        
     }
-    
 }

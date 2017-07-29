@@ -1,9 +1,12 @@
+/**
+ *  Toto NIE JE moja práca
+ *  ZDROJ: https://www.codeproject.com/Articles/2136/Double-buffer-in-standard-Java-AWT
+ *
+ *  Toto zabraňuje flickeru pri posúvaní/behu proramu
+ */
+
 package grafiky;
 
-/**
- *
- * @author Tom
- */
 import java.awt.*;
 
 public class DoubleBuffer extends Canvas{

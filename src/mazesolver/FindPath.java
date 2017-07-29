@@ -15,16 +15,7 @@ public class FindPath {
         Queue<Tile> Q = new Queue<>();
         Tile current = null;
         
-         for (int i = 0; i < Array.size(); i++) {
-            for (int j = 0; j < Array.get(i).size(); j++) {
-                Array.get(i).get(j).seen = false;
-                Array.get(i).get(j).ancestor = null;
-                if (Array.get(i).get(j).C == Color.BLUE)
-                    Array.get(i).get(j).C = Color.WHITE;
-                
-                
-            }
-         }
+        preparation(Array);
         
         start.seen = true;
         Q.enqueue(start);
@@ -49,6 +40,30 @@ public class FindPath {
                 
             }
             else {
+                /*
+                
+       Toto je začiatok java okna (suradnice [0;0])
+                |
+                v
+                |-------------------------------------------------
+                |          Začiatok mriežky (zároveň aj súradniceprvého štvorca)     
+                |               |
+                |               v
+                |   Offset      [][][][]
+                |<------------->[][][][]
+                |               [][][][]
+                |
+                |   tileSize je velkosť strany štvorca.
+                
+                *    Takže pre prvý štvorec (uplne v lavo hore) platí:
+                *        x: 50
+                *        Y: 50
+                *        Offset: 50
+                *                   
+                *        Dostaneme: že prvý štvorec sa nachádza vo vektore na
+                *        pozícii [0][0]
+                *
+                */
                 int VectorPosX = (current.LeftUp.x - offset)/tileSize; //vektor v hlavnom vektore
                 int VectorPosY = (current.LeftUp.y - offset)/tileSize; //hlavný vektor
                 
@@ -115,6 +130,19 @@ public class FindPath {
         
         
         
+    }
+    
+    private static void preparation(Vector<Vector <Tile> > Array) {
+        for (int i = 0; i < Array.size(); i++) {
+            for (int j = 0; j < Array.get(i).size(); j++) {
+                Array.get(i).get(j).seen = false;
+                Array.get(i).get(j).ancestor = null;
+                if (Array.get(i).get(j).C == Color.BLUE)
+                    Array.get(i).get(j).C = Color.WHITE;
+                
+                
+            }
+         }
     }
     
 }

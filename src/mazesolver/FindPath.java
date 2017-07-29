@@ -67,6 +67,19 @@ public class FindPath {
                 int VectorPosX = (current.LeftUp.x - offset)/tileSize; //vektor v hlavnom vektore
                 int VectorPosY = (current.LeftUp.y - offset)/tileSize; //hlavný vektor
                 
+                /**
+                 *  0 1 2 3 4 5 6
+                 * 0
+                 * 1    ?
+                 * 2  ? x ?
+                 * 3    ?
+                 * 4
+                 * 5
+                 * 6
+                 *      Ak sme v bode x [2;2] je potrebne prehladať susedne body
+                 *      [1;2],[2;3],[3;2],[2;1]
+                 * 
+                 */
                 try {
                     if (Array.get(VectorPosY-1).get(VectorPosX).C != Color.BLACK &&
                             Array.get(VectorPosY-1).get(VectorPosX).seen == false) {
